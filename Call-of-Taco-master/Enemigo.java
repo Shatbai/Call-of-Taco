@@ -14,4 +14,7 @@ public class Enemigo extends Personaje{
             taco.setHp(taco.getHp()-(getAtaque()-taco.getDefensa()));
         }
     }
+    public void atacar(Personaje enemigo){
+		enemigo.setHp(enemigo.getHp()-(getAtaque()-enemigo.getDefensa()));
+	}
 }

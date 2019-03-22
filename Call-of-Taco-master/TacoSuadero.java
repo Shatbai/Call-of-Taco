@@ -1,7 +1,7 @@
 
 public class TacoSuadero extends Taco{
     public TacoSuadero(){
-        super("Suadero", 100,5,15,25);
+        super("Suadero", 100,5,15,25,30);
         AtaqueEspecial[] especial=new AtaqueEspecial[4];
         especial[0]=new AtaqueEspecial("Carne de dudosa procedencia",40);
         especial[1]=new AtaqueEspecial("tomatazo",30);

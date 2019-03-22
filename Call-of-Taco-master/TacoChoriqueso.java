@@ -1,7 +1,7 @@
 public class TacoChoriqueso extends Taco{
      
     public TacoChoriqueso(){
-        super("Choriqueso", 100,20,20,8);
+        super("Choriqueso", 100,20,20,8,10);
         AtaqueEspecial[] especial=new AtaqueEspecial[4];
         especial[0]=new AtaqueEspecial("Choricombo",40);
         especial[1]=new AtaqueEspecial("Látigo de Queso",20);

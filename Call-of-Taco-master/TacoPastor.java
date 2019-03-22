@@ -1,7 +1,7 @@
 public class TacoPastor extends Taco{
     
     public TacoPastor(){
-        super("Pastor", 100,20,5,15);
+        super("Pastor", 100,20,5,10,15);
         AtaqueEspecial[] especial=new AtaqueEspecial[4];
         especial[0]=new AtaqueEspecial("Carnazo",35);
         especial[1]=new AtaqueEspecial("Lanzar guajillo en los ojos",30);
