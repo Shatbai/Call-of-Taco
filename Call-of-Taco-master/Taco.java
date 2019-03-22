@@ -55,11 +55,12 @@ public abstract class Taco extends Personaje{
 		resultado= resultado+"]";
 		return resultado;
 	}
-	public void atacar(Personaje enemigo, AtaqueEspecial especiales){
-		enemigo.setHp(enemigo.getHp()-(especiales.getPuntosEspeciales()-enemigo.getDefensa()));
-	}
+
 	public void atacar(Personaje enemigo, Condimentos condimento){
 		enemigo.setHp(enemigo.getHp()-(condimento.getPuntos()-enemigo.getDefensa()));
+	}
+	public void atacar(Personaje enemigo, AtaqueEspecial AE){
+		enemigo.setHp(enemigo.getHp()-(AE.getPuntosEspeciales()-enemigo.getDefensa()));
 	}
 }
 

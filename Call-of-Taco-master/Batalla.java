@@ -33,6 +33,8 @@ public class Batalla{
 					else
 						System.out.println("Este objeto no es para atacar");
 					break;	
+				default:
+					System.out.println("Pierdes tu turno");
 
 			}
 

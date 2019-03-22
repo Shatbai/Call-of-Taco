@@ -45,12 +45,15 @@ public class Personaje{
 		return Defensa;
 	}
 
-	public void atacar(Personaje malo){
-
+	public void atacar(Personaje enemigo){
+		enemigo.setHp(enemigo.getHp()-(getAtaque()-enemigo.getDefensa()));
 	}
 
 	public void defender(Personaje m){
 		
+	}
+	public String toString(){
+		return "Personaje: "+tipo+" HP: "+Hp+" ataque: "+Ataque+" defensa: "+Defensa+"Energía"+energia;
 	}
 	
 
