@@ -12,7 +12,7 @@ public class Boss extends Personaje{
             setEnergia(getEnergia()-5);
         }else{
             System.out.println("Ataque normal de Hamburguesaa");
-            taco.setHp(taco.getHp()-(getAtaque()-taco.getDefensa()));
+            super.atacar(taco);
         }
     }
 }

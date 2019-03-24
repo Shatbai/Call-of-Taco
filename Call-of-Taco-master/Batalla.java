@@ -1,7 +1,7 @@
 import java.util.Scanner;
 public class Batalla{
 
-	public static void iniciarBatalla(Taco p1, Boss p2){
+	public static void iniciarBatalla(Taco p1, Personaje p2){
 	int vida=p2.getHp();
 		while(p1.getHp()>0&&p2.getHp()>0){
 			System.out.println("Como quieres atacar? 1) Normal 2) Ataque Especial 3) Condimentos");

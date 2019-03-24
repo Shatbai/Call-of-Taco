@@ -64,7 +64,7 @@ public abstract class Taco extends Personaje{
 		int golpe=sc.nextInt();
 		switch(golpe){
 			case 1:
-			enemigo.setHp(enemigo.getHp()-(getAtaque()-enemigo.getDefensa()));
+			super.atacar(enemigo);
 			break;
 			case 2:
 			enemigo.setHp(enemigo.getHp()-(golpeF-enemigo.getDefensa())); 

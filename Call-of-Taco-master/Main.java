@@ -3,6 +3,9 @@ public class Main{
     public static void main(String[]args){
         Taco taquito;
         Boss b;
+        Personaje secuaz1;
+        Personaje secuaz2;
+        Personaje secuaz3;
         int batalla=0;
         System.out.println("¿Qué taco quieres ser:? 1)Suadero 2)Pastor 3)Choriqueso");
         Scanner sc= new Scanner(System.in);
@@ -29,9 +32,19 @@ public class Main{
                  break;
                 case 2:
                     b=new Ensalada();
+                    secuaz1=new Jitomate();
+                    secuaz2=new Lechuga();
+                    secuaz3=new Pepino();
+                    Batalla.iniciarBatalla(taquito,secuaz1);
+                    Batalla.iniciarBatalla(taquito,secuaz2);
+                    Batalla.iniciarBatalla(taquito,secuaz3);
                  break;
                 case 3:
                     b=new Gringa();
+                    secuaz1=new Trumpito();
+                    secuaz2=new Muro();
+                    Batalla.iniciarBatalla(taquito,secuaz1);
+                    Batalla.iniciarBatalla(taquito,secuaz2);
                  break;
                 default:
                     b=new HotDog();
