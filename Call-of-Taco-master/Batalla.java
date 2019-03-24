@@ -1,7 +1,8 @@
 import java.util.Scanner;
 public class Batalla{
 
-	public static void iniciarBatalla(Taco p1, Personaje p2){
+	public static void iniciarBatalla(Taco p1, Boss p2){
+	int vida=p2.getHp();
 		while(p1.getHp()>0&&p2.getHp()>0){
 			System.out.println("Como quieres atacar? 1) Normal 2) Ataque Especial 3) Condimentos");
 			Scanner sc= new Scanner(System.in);
@@ -37,12 +38,25 @@ public class Batalla{
 					System.out.println("Pierdes tu turno");
 
 			}
-
-			p2.atacar(p1);
+			if(p2.getHp()>0){
+				p2.atacar(p1);
+			}
 
 			System.out.println(p1.toString());
 			System.out.println(p2.toString());
 
+		}
+		System.out.println("**************");
+		if(p2.getHp()<=0){
+			System.out.println("GANASTE ");
+		}else if(p1.getNumVidas()>0){
+			System.out.println(p2.getTipo()+" ha logrado vencerte, regresas a la batalla");
+			System.out.println("**************");
+			p1.setHp(100);
+			p2.setHp(vida);
+			Batalla.iniciarBatalla(p1,p2);
+		}else{
+			System.out.println(p2.getTipo()+" ha logrado vencerte y perdiste tu última vida");
 		}
 	}
 

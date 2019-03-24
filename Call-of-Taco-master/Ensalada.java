@@ -1,6 +1,6 @@
-public class Ensalada extends Enemigo{
+public class Ensalada extends Boss{
     public Ensalada(){
-        super("Ensalda",250,7,15,15,15);
+        super("Ensalda",150,20,8,5,30);
     }
     
 

@@ -3,12 +3,12 @@ public abstract class Taco extends Personaje{
 	
 	private AtaqueEspecial[] especiales;
 	private Condimentos[] morral;
-	String nombre="Tlaxcalli";
 	private int golpeF;
+	private int numVidas=3;
 
 
-	public Taco(String tipo, int hp, int energia, int defensa, int ataque,int golpeF){
-		super(tipo, hp, energia, defensa, ataque);
+	public Taco(String tipo, int hp, int energia, int ataque, int defensa, int golpeF){
+		super(tipo, hp, energia, ataque, defensa);
 		morral= new Condimentos[10];
 		this.golpeF=golpeF;
 	}
@@ -68,6 +68,7 @@ public abstract class Taco extends Personaje{
 			break;
 			case 2:
 			enemigo.setHp(enemigo.getHp()-(golpeF-enemigo.getDefensa())); 
+			setEnergia(getEnergia()-5);
 		}
 		
 	}
@@ -76,6 +77,12 @@ public abstract class Taco extends Personaje{
 	}
 	public void atacar(Personaje enemigo, AtaqueEspecial AE){
 		enemigo.setHp(enemigo.getHp()-(AE.getPuntosEspeciales()-enemigo.getDefensa()));
+	}
+	public int getNumVidas(){
+		return numVidas;
+	}
+	public void setNumVidas(int numVidas){
+		this.numVidas=numVidas;
 	}
 }
 

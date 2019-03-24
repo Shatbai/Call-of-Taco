@@ -1,6 +1,6 @@
-public class HotDog extends Enemigo{
+public class HotDog extends Boss{
     public HotDog(){
-        super("Hot Dog",50,5,1,15,10);
+        super("Hot Dog",50,10,10,0,13);
     }
     
 }

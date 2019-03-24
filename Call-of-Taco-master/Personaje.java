@@ -1,16 +1,16 @@
 public class Personaje{
 
-	private int Hp;
+	private int hp;
 	private String tipo;
-	private int Ataque;
-	private int Defensa;
+	private int ataque;
+	private int defensa;
 	private int energia;
 
-	public Personaje(String tipo, int Hp,int Ataque,int Defensa, int energia){
+	public Personaje(String tipo, int hp, int energia,int ataque,int defensa){
 		this.tipo=tipo;
-		this.Hp=Hp;
-		this.Ataque=Ataque;
-		this.Defensa=Defensa;
+		this.hp=hp;
+		this.ataque=ataque;
+		this.defensa=defensa;
 		this.energia=energia;
 	}
 	
@@ -22,38 +22,37 @@ public class Personaje{
 		return tipo;
 	}
 
-	public void setHp(int Hp){
-		this.Hp=Hp;
+	public void setHp(int hp){
+		this.hp=hp;
 	}
 
 	public int getHp(){
-		return Hp;
+		return hp;
 	}
 
-	public void setAtaque(int Ataque){
-		this.Ataque=Ataque;
+	public void setAtaque(int ataque){
+		this.ataque=ataque;
 	}
 
 	public int getAtaque(){
-		return Ataque;
+		return ataque;
 	}
 
-	public void setDefensa(int Defensa){
-		this.Defensa=Defensa;
+	public void setDefensa(int defensa){
+		this.defensa=defensa;
 	}
 	public int getDefensa(){
-		return Defensa;
+		return defensa;
+	}
+	public int getEnergia(){
+		return energia;
+	}
+	public void setEnergia(int energia){
+		this.energia=energia;
 	}
 
-	public void atacar(Personaje enemigo){
-		enemigo.setHp(enemigo.getHp()-(getAtaque()-enemigo.getDefensa()));
-	}
-
-	public void defender(Personaje m){
-		
-	}
 	public String toString(){
-		return "Personaje: "+tipo+" HP: "+Hp+" ataque: "+Ataque+" defensa: "+Defensa+"Energía"+energia;
+		return "Personaje: "+tipo+" HP: "+hp+" ataque: "+ataque+" defensa: "+defensa+" energía"+energia;
 	}
 	
 
