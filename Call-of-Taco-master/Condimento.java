@@ -1,14 +1,19 @@
 public class Condimento{
     String nombre;
     int puntos;
-    public Condimento(String nombre, int puntos){
+    int gastoE;
+    public Condimento(String nombre, int puntos,int gastoE){
         this.nombre=nombre;
         this.puntos=puntos;
+        this.gastoE=gastoE;
     }
     public String getNombre(){
         return "salsa";
     }
     public int getPuntos(){
-        return 50;
+        return puntos;
+    }
+    public int getGastoE(){
+        return gastoE;
     }
 }

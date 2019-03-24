@@ -30,7 +30,7 @@ public class Batalla{
 					}
 					int opcionElegida=sc.nextInt();
 					if(p1.getMorral()[opcionElegida-1].getClass()==Arma.class)
-						p1.atacar(p2,p1.getMorral()[opcionElegida-1]);
+						p1.atacar(p2,p1.getMorral()[opcionElegida-1],(opcionElegida-1));
 					else
 						System.out.println("Este objeto no es para atacar");
 					break;	

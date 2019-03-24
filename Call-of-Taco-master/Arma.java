@@ -1,6 +1,6 @@
-public class Arma extends Condimentos{
+public class Arma extends Condimento{
 		
-		public Arma(String nombre,int puntos){
-		super(nombre,puntos);
+		public Arma(String nombre,int puntos,int gasto){
+		super(nombre,puntos,gasto);
 	}
 }

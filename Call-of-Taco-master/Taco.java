@@ -2,14 +2,14 @@ import java.util.Scanner;
 public abstract class Taco extends Personaje{
 	
 	private AtaqueEspecial[] especiales;
-	private Condimentos[] morral;
+	private Condimento[] morral;
 	private int golpeF;
 	private int numVidas=3;
 
 
 	public Taco(String tipo, int hp, int energia, int ataque, int defensa, int golpeF){
 		super(tipo, hp, energia, ataque, defensa);
-		morral= new Condimentos[10];
+		morral= new Condimento[10];
 		this.golpeF=golpeF;
 	}
 	
@@ -22,12 +22,15 @@ public abstract class Taco extends Personaje{
 		this.especiales=especiales;
 	}
 
-	public Condimentos[] getMorral(){
+	public Condimento[] getMorral(){
 		return morral;
 	}
 
-	public void addCondimentotoMorral(Condimentos c, int index){
+	public void addCondimentotoMorral(Condimento c, int index){
 		morral[index]=c;
+	}
+	public void removeCondimentoToMorral(int index){
+		morral[index]=null;
 	}
 
 	public String dameInventario(){
@@ -72,8 +75,14 @@ public abstract class Taco extends Personaje{
 		}
 		
 	}
-	public void atacar(Personaje enemigo, Condimentos condimento){
-		enemigo.setHp(enemigo.getHp()-(condimento.getPuntos()-enemigo.getDefensa()));
+	public void atacar(Personaje enemigo, Condimento condimento,int index){
+		if(getEnergia()>=condimento.getGastoE()){
+		enemigo.setHp(enemigo.getHp()-(condimento.getPuntos()+getAtaque()-enemigo.getDefensa()));
+		setEnergia(getEnergia()-condimento.getGastoE());
+		removeCondimentoToMorral(index);
+		}else{
+			System.out.println("UPS, no tienes suficiente energía, pierdes tú turno");
+		}
 	}
 	public void atacar(Personaje enemigo, AtaqueEspecial AE){
 		enemigo.setHp(enemigo.getHp()-(AE.getPuntosEspeciales()-enemigo.getDefensa()));
