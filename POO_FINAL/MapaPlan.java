@@ -26,9 +26,11 @@ public abstract class MapaPlan extends Scene {
     private String nom;
     private Button seguir;
     private int m=0;
+    private Personaje secuaz; 
+    private Boss boss;
 
 
-    public MapaPlan(Taco taquito, Main main,int b1, int b2, int a1, int a2, int d1, int d2){
+    public MapaPlan(Taco taquito, Main main,int b1, int b2, int a1, int a2, int d1, int d2, int i, int j, Personaje secuaz, Boss boss){
 
        super(new GridPane(),900,900);
        this.main=main;
@@ -39,6 +41,10 @@ public abstract class MapaPlan extends Scene {
        this.a2=a2;
        this.d1=d1;
        this.d2=d2;
+       this.i=i;
+       this.j=j;
+       this.secuaz=secuaz;
+       this.boss=boss;
        nom=taquito.getTipo();
        switch (nom){
             case "Suadero":
@@ -50,9 +56,7 @@ public abstract class MapaPlan extends Scene {
                             }
        perso.setText(nom);
        perso.setPrefSize(90,90);
-       pintar();
-       i=0;
-       j=0;    
+       pintar(); 
         
         super.setRoot(m1);
     }
@@ -102,9 +106,8 @@ public abstract class MapaPlan extends Scene {
                             casilla[i][j].setStyle("-fx-background-image:url('assets/tacoch.jpg');");break;
                     }
                     casilla[i][j].setText(nom);
-                    if((i==b1)&&(j==b2)){
-                        Personaje secuaz1=new Jitomate();              
-                        main.pelear(secuaz1);
+                    if((i==b1)&&(j==b2)){             
+                        main.pelear(secuaz);
                     }
                     if((i==a1)&&(j==a2)){
                         Arma();
@@ -115,10 +118,10 @@ public abstract class MapaPlan extends Scene {
     
                 }catch(ArrayIndexOutOfBoundsException e){
                     System.out.println("Choco con pared");
-                    if(i==10){i=9;}
-                    if(i==-1){i=0;}
-                    if(j==10){j=9;}
-                    if(j==-1){j=0;}
+                    if(i>=10){i=9;}
+                    if(i<=-1){i=0;}
+                    if(j>=10){j=9;}
+                    if(j<=-1){j=0;}
                     casilla[i][j].setStyle("-fx-background-image:url('assets/tacos.jpg');");
                 }
             }

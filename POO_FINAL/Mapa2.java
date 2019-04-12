@@ -14,7 +14,7 @@ import javafx.event.EventHandler;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 
-public class Mapa2 extends Scene {
+public class Mapa2 extends MapaPlan{
     private GridPane m1= new GridPane();
     private Button c;
     private Button perso= new Button();
@@ -26,92 +26,39 @@ public class Mapa2 extends Scene {
     private Taco taquito;
     private String nom;
     private Button seguir;
+    private int m=0;
 
 
-    public Mapa2(Taco taquito, Main main){
+    public Mapa2(Taco taquito, Main main, int i, int j, Personaje secuaz, Boss boss){
 
-       super(new GridPane(),900,900);
-       this.main=main;
+       super(taquito, main,3,3,6,4,7,7,i,j,secuaz,boss);
        this.taquito=taquito;
-       nom=taquito.getTipo();
-       switch (nom){
-            case "Suadero":
-                perso.setStyle("-fx-background-image:url('assets/tacos.jpg');");break;
-            case "Pastor":
-                perso.setStyle("-fx-background-image:url('assets/tacop.jpg');");break;
-            default:
-                perso.setStyle("-fx-background-image:url('assets/tacoch.jpg');");break;
-                            }
-       perso.setPrefSize(90,90);
-       pintar();
-       i=0;
-       j=0;
-        
-        
-        super.setRoot(m1);
-    }
-    public void pintar(){
-        for(int a=0;a<10;a++){
-            for(int b=0;b<10;b++){
-                c =new Button();
-                c.setPrefSize(90, 90);
-                if(a==0&&b==0){
-                   
-                        casilla[a][b]=perso;
-                }else{
-                    casilla[a][b]=c;
-                    
-                }
-                m1.add(casilla[a][b],a,b);
-                moverse(casilla[a][b]);
-                
-            }
-        }
-    }
-    public void moverse(Button m){
        
-        m.setOnKeyPressed(new EventHandler<KeyEvent>() {
-            public void handle(KeyEvent ke) {
-                try{
-                    switch (ke.getCode()) { 
-                        case UP: j--;  
-                            casilla[i][j+1].setStyle("-fx-background-image:none;");
-                            casilla[i][j+1].setText(" ");break;
-                        case RIGHT: 
-                            if(i==9&&j==9){main.setScene4();}else{i++;
-                            casilla[i-1][j].setStyle("-fx-background-image:none;");
-                            casilla[i-1][j].setText(" ");}break; 
-                        case DOWN:  j++;
-                            casilla[i][j-1].setStyle("-fx-background-image:none;");
-                            casilla[i][j-1].setText(" ");break;  
-                        case LEFT:  i--;
-                            casilla[i+1][j].setStyle("-fx-background-image:none;");
-                            casilla[i+1][j].setText(" ");break;
-                            }
-                    switch (nom){
-                        case "Suadero":
-                            casilla[i][j].setStyle("-fx-background-image:url('assets/tacos.jpg');");break;
-                        case "Pastor":
-                            casilla[i][j].setStyle("-fx-background-image:url('assets/tacop.jpg');");break;
-                        default:
-                            casilla[i][j].setStyle("-fx-background-image:url('assets/tacoch.jpg');");break;
-                    }
-                    casilla[i][j].setText(nom);
-    
-                }catch(ArrayIndexOutOfBoundsException e){
-                    System.out.println("Choco con pared");
-                    if(i==10){
-                        i--;
-                    }
-                    if(i==-1){
-                        i++;
-                    }if(j==10){
-                        j--;
-                    }if(j==-1){
-                        j++;
-                    }
+    }
+    public void Arma(){
+        Condimento c2= new Arma("Salsa Roja",50,4);
+        taquito.addCondimentotoMorral(c2,m);
+        m++;
+        System.out.println("Encontraste una salsa Roja");
+        for(int i=0;i<taquito.getMorral().length;i++){
+			if(taquito.getMorral()[i]!=null){
+				System.out.print((i+1)+" "+taquito.getMorral()[i].getNombre()+" ["+taquito.getMorral()[i].getPuntos()+"] ");
+			}else{
+				System.out.print((i+1)+" Vacio " );
                 }
-            }
-        }); 
-    }  
+		}
+    }
+    public void Defensa(){
+        Condimento d2= new Defensa("Limón",15,6);
+        taquito.addCondimentotoMorral(d2,m);
+        m++;
+        System.out.println("Encontraste un Limón");
+        for(int i=0;i<taquito.getMorral().length;i++){
+			if(taquito.getMorral()[i]!=null){
+				System.out.print((i+1)+" "+taquito.getMorral()[i].getNombre()+" ["+taquito.getMorral()[i].getPuntos()+"] ");
+			}else{
+				System.out.print((i+1)+" Vacio " );
+                }
+		}
+    }
 }

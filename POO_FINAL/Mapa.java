@@ -28,11 +28,9 @@ public class Mapa extends MapaPlan{
     private Button seguir;
     private int m=0;
 
-
-    public Mapa(Taco taquito, Main main){
-
-       super(taquito, main,4,6,8,5,9,9);
-       
+    public Mapa(Taco taquito, Main main, int i, int j, Personaje secuaz, Boss boss){
+       super(taquito, main,4,6,8,5,8,8,i,j,secuaz,boss);
+       this.taquito=taquito;       
     }
     public void Arma(){
         Condimento c2= new Arma("Salsa Verde",10,7);
@@ -48,7 +46,7 @@ public class Mapa extends MapaPlan{
 		}
     }
     public void Defensa(){
-        Condimento d2= new Arma("Piña",10,5);
+        Condimento d2= new Defensa("Piña",10,5);
         taquito.addCondimentotoMorral(d2,m);
         m++;
         System.out.println("Encontraste una Piña");

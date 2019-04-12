@@ -33,11 +33,15 @@ public class Main extends Application{
         mainStage.setScene(perso);
     }
     public void setScene3(){
-        mapa = new Mapa(taquito, this);
+        Personaje secuaz= new Jitomate(); 
+        Boss boss= new Ensalada();
+        mapa = new Mapa(taquito, this,0,0,secuaz,boss);
         mainStage.setScene(mapa);
     }
     public void setScene4(){
-        mapa_2 = new Mapa2(taquito,this);
+        Personaje secuaz= new Trumpito(); 
+        Boss boss= new Gringa();
+        mapa_2 = new Mapa2(taquito,this,0,0,secuaz,boss);
         mainStage.setScene(mapa_2);
     }
     public void setTaco(Taco taquito){
