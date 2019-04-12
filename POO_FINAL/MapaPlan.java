@@ -14,26 +14,31 @@ import javafx.event.EventHandler;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 
-public class MapaPlan extends Scene {
+public abstract class MapaPlan extends Scene {
     private GridPane m1= new GridPane();
     private Button c;
     private Button perso= new Button();
     private Button vacio;
     private Button [][] casilla= new Button[10][10];
     private Main main;
-    private int i;
-    private int j;
+    private int i,j,b1,b2,a1,a2,d1,d2;
     private Taco taquito;
     private String nom;
     private Button seguir;
     private int m=0;
 
 
-    public MapaPlan(Taco taquito, Main main){
+    public MapaPlan(Taco taquito, Main main,int b1, int b2, int a1, int a2, int d1, int d2){
 
        super(new GridPane(),900,900);
        this.main=main;
        this.taquito=taquito;
+       this.b1=b1;
+       this.b2=b2;
+       this.a1=a1;
+       this.a2=a2;
+       this.d1=d1;
+       this.d2=d2;
        nom=taquito.getTipo();
        switch (nom){
             case "Suadero":
@@ -64,7 +69,7 @@ public class MapaPlan extends Scene {
                     
                 }
                 m1.add(casilla[a][b],a,b);
-                moverse(casilla[a][b]);
+                moverse(casilla[a][b],b1,b2,a1,a2,d1,d2);
                 
             }
         }
@@ -119,30 +124,6 @@ public class MapaPlan extends Scene {
             }
         }); 
     }  
-    public void Arma(){
-        Condimento c2= new Arma("Salsa Verde",10,7);
-        taquito.addCondimentotoMorral(c2,m);
-        m++;
-        System.out.println("Encontraste una salsa Verde");
-        for(int i=0;i<taquito.getMorral().length;i++){
-			if(taquito.getMorral()[i]!=null){
-				System.out.print((i+1)+" "+taquito.getMorral()[i].getNombre()+" ["+taquito.getMorral()[i].getPuntos()+"] ");
-			}else{
-				System.out.print((i+1)+" Vacio " );
-                }
-		}
-    }
-    public void Defensa(){
-        Condimento d2= new Arma("Piña",10,5);
-        taquito.addCondimentotoMorral(d2,m);
-        m++;
-        System.out.println("Encontraste una Piña");
-        for(int i=0;i<taquito.getMorral().length;i++){
-			if(taquito.getMorral()[i]!=null){
-				System.out.print((i+1)+" "+taquito.getMorral()[i].getNombre()+" ["+taquito.getMorral()[i].getPuntos()+"] ");
-			}else{
-				System.out.print((i+1)+" Vacio " );
-                }
-		}
-    }
+    public abstract void Arma();
+    public abstract void Defensa();
 }
